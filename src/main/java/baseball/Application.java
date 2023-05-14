@@ -1,6 +1,8 @@
 package baseball;
 
-import static baseball.CreateNumber.createRandomNumber;
+import baseball.Controller.BaseBallController;
+
+import static baseball.Model.CreateNumber.createRandomNumber;
 
 public class Application {
     public static void main(String[] args) {

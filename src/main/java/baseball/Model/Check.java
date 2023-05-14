@@ -1,18 +1,21 @@
-package baseball;
+package baseball.Model;
+
+import baseball.Util.ConsoleMessage;
 
 import java.util.List;
 
-import static baseball.BaseBallController.strike;
-import static baseball.Count.countBall;
-import static baseball.Count.countStrike;
-import static baseball.Regame.*;
+import static baseball.Controller.BaseBallController.strike;
+import static baseball.Model.Count.*;
+import static baseball.Controller.Regame.restart;
 
 public class Check {
+
     private static final int CORRECT_NUMBER_LENGTH = 3;
+
     public static void checkError(String userNumber) {
         if (userNumber.length() != 3) {
-            System.out.println("3자리 수를 입력해주세요.");
-            System.out.println("게임 종료!");
+            System.out.println(ConsoleMessage.UNCORRECT_LENGTH.getMessage());
+            System.out.println(ConsoleMessage.EXIT_GAME.getMessage());
             throw new IllegalArgumentException();
         }
     }
@@ -31,11 +34,15 @@ public class Check {
         }
     }
 
+    private static void reset(List<Integer> computerNumber, List<Integer> realUserNumber) {
+        resetBallStrike();
+        resetUserComputerNumber(computerNumber, realUserNumber);
+    }
+
     public static void checkAnswer(List<Integer> computerNumber, List<Integer> realUserNumber) {
         if (strike == 3) {
-            System.out.println("3개의 숫자를 모두 맞히셨습니다!");
-            resetBallStrike();
-            resetUserComputerNumber(computerNumber, realUserNumber);
+            System.out.println(ConsoleMessage.CORRECT_ANSWER.getMessage());
+            reset(computerNumber, realUserNumber);
             restart();
         }
     }

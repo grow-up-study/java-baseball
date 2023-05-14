@@ -1,6 +1,7 @@
 ## 숫자야구를 위한 클래스
 
 # 기능
+
 - 메인함수
     - 랜덤한 3자리수를 뽑아 게임시작
     - 게임 시작
@@ -18,36 +19,45 @@
                     - 1과 2를 입력받아 게임을 진행할지 끝낼지 결정
 
 
--main
-- createRandomNumber()
-- gameStart()
+- main
+    - createRandomNumber() O
+    - gameStart() O
+        - changeUserNumber() O
+            - parseToInteger()
+            - checkError()
+            - checkStrike()
+                - countStrike()
+            - checkBall()
+                - countBall()
+            - printResult()
+            - checkAnswer()
+                - resetBallStrike()
+                    - resetUserComputerNumber()
+                    - restart()
+
+-기능
+
+- 랜덤숫자 생성 클래스
+    - createRandomNumber()
+- 게임시작 클래스
+    - gameStart()
+- 검사 클래스
+    - checkError()
+    - checkStrike()
+    - checkBall()
+    - checkAnswer()
+- 카운트 클래스
+    - countStrike()
+    - countBall()
+- 재시작 클래스
+    - restart()
+    - resetUserComputerNumber()
+    - resetBallStrike()
+- 결과출력 클래스
+    - printResult()
+- 숫자 변경 클래스
     - changeUserNumber()
-        - parseToInteger()
-        - checkError()
-        - checkStrike()
-            - countStrike()
-        - checkBall()
-            - countBall()
-        - printResult()
-        - checkAnswer()
-            - resetBallStrike()
-                - resetUserComputerNumber()
-                - restart()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@version 1.00 03/28/23
+    - parseToInteger()
+  
+@version 1.01 04/07/23
 @author 허준기
